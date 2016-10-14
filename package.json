@@ -1,1 +1,30 @@
 
+{
+  "name": "express-turtle-parser",
+  "version": "0.1.0",
+  "description": "express middleware to parse turtle body using n3",
+  "main": "turtle.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renodim/express-turtle-parser"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "turtle",
+    "rdf",
+    "body-parser"
+  ],
+  "author": "matthew.renodin@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renodim/express-turtle-parser/issues"
+  },
+  "homepage": "https://github.com/renodim/express-turtle-parser",
+  "dependencies": {
+    "n3": "~0.8.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2"
+  }
+}
