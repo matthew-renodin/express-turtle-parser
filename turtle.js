@@ -18,72 +18,72 @@ module.exports.regexp = regexp;
  * @param {Object} options Parser options
  * @return {turtlebodyparser}
  */
-
 function turtleparser(options) {
-    /**
-    * Provide connect/express-style middleware
-    *
-    * @param {IncomingMessage} req
-    * @param {ServerResponse} res
-    * @param {Function} next
-    * @return {*}
-    */
-    function turtlebodyparser(req, res, next) {
-        var data = '',
-            parser = new turtle2js.Parser(),
-            /**
-             * @param {Error} err
-             * @param {Object} turtle
-             */
-            responseHandler = function (err, triple, prefixes) {
-                if (err) {
-                    err.status = 400;
-                    return next(err);
-                }
 
-                if (triple) {
-                    if(!req.triples){
-                        req.triples = [];
-                    }
-                    req.triples.push(triple);
-                }
-                else {
-                    req.rawBody = data;
-                    next();
-                }
-                
-                
-            };
+  /**
+   * Provide connect/express-style middleware
+   *
+   * @param {IncomingMessage} req
+   * @param {ServerResponse} res
+   * @param {Function} next
+   * @return {*}
+   */
+  function turtlebodyparser(req, res, next) {
+    var data = '',
+        parser = new turtle2js.Parser(),
 
-        if (req._body) {
-            return next();
-        }
+        /**
+         * @param {Error} err
+         * @param {Object} triple
+         * @param {Object} prefixes
+         */
+        responseHandler = function (err, triple, prefixes) {
+          if (err) {
+            err.status = 400;
+            return next(err);
+          }
 
-        req.body = req.body || {};
-
-        if (!hasBody(req) || !module.exports.regexp.test(mime(req))) {
-            return next();
-        }
-
-        req._body = true;
-
-        // explicitly cast incoming to string
-        req.setEncoding('utf-8');
-        req.on('data', function (chunk) {
-            data += chunk;
-        });
-
-        req.on('end', function () {
-            // invalid turtle, length required
-            if (data.trim().length === 0) {
-                return next(error(411));
+          if (triple) {
+            if (!req.triples) {
+              req.triples = [];
             }
-            // responseHandler(null, data, {});
-            parser.parse(data, responseHandler);
-        });
+            req.triples.push(triple);
+          }
+          else {
+            req.rawBody = data;
+            next();
+          }
+        };
+
+    if (req._body) {
+      return next();
     }
 
-    return turtlebodyparser;
+    req.body = req.body || {};
+
+    if (!hasBody(req) || !module.exports.regexp.test(mime(req))) {
+      return next();
+    }
+
+    req._body = true;
+
+    // explicitly cast incoming to string
+    req.setEncoding('utf-8');
+    req.on('data', function (chunk) {
+      data += chunk;
+    });
+
+    req.on('end', function () {
+      // invalid turtle, length required
+      if (data.trim().length === 0) {
+        return next(error(411));
+      }
+      // responseHandler(null, data, {});
+      parser.parse(data, responseHandler);
+    });
+  }
+
+  return turtlebodyparser;
 }
 
 /**
@@ -94,9 +94,9 @@ function turtleparser(options) {
  * @return boolean
  */
 function hasBody(req) {
-    var encoding = 'transfer-encoding' in req.headers,
-        length = 'content-length' in req.headers && req.headers['content-length'] !== '0';
-    return encoding || length;
+  var encoding = 'transfer-encoding' in req.headers,
+      length = 'content-length' in req.headers && req.headers['content-length'] !== '0';
+  return encoding || length;
 }
 
 /**
@@ -107,8 +107,8 @@ function hasBody(req) {
  * @return string
  */
 function mime(req) {
-    var str = req.headers['content-type'] || '';
-    return str.split(';')[0];
+  var str = req.headers['content-type'] || '';
+  return str.split(';')[0];
 }
 
 /**
@@ -120,8 +120,8 @@ function mime(req) {
  * @return {Error}
  */
 function error(code, msg) {
-    var err = new Error(msg || http.STATUS_CODES[code]);
-    err.status = code;
-    return err;
+  var err = new Error(msg || http.STATUS_CODES[code]);
+  err.status = code;
+  return err;
 }
 
