@@ -102,6 +102,6 @@ app.post('/receive-turtle', function(req, res, next) {
 
 // using curl to send a HTTP POST
 
-cat provo-example.ttl | curl -H "Content-Type: text/turtle" -X POST -d @- http://localhost:43711/reveive-turtle
+cat provo-example.ttl | curl -H "Content-Type: text/turtle" -X POST -d @- http://localhost:43711/receive-turtle
 
 [npm-url]:https://www.npmjs.com/package/express-turtle-parser
