@@ -1,9 +1,3 @@
-[![NPM Version][npm-image]][npm-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Build Status][ci-image]][ci-url]
-[![Code Coverage status][codecov-image]][codecov-url]
-[![Gitter channel][gitter-image]][gitter-url]
-
 # express-turtle-parser
 
 This is for express applications where you who want to parse Turtle RDF on HTTP POST.
