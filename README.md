@@ -102,9 +102,10 @@ server.listen(1337);
 :civil_action_group a foaf:Organization, prov:Agent .
 ````
 
-
+````
 // using curl to send a HTTP POST
 
 cat provo-example.ttl | curl -H "Content-Type: text/turtle" -X POST -d @- http://localhost:43711/receive-turtle
+````
 
 [npm-url]:https://www.npmjs.com/package/express-turtle-parser
