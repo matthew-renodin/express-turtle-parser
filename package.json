@@ -5,7 +5,7 @@
   "main": "turtle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/renodim/express-turtle-parser"
+    "url": "https://github.com/matthew-renodin/express-turtle-parser"
   },
   "keywords": [
     "express",
@@ -17,9 +17,9 @@
   "author": "matthew.renodin@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/renodim/express-turtle-parser/issues"
+    "url": "https://github.com/matthew-renodin/express-turtle-parser/issues"
   },
-  "homepage": "https://github.com/renodim/express-turtle-parser",
+  "homepage": "https://github.com/matthew-renodin/express-turtle-parser",
   "dependencies": {
     "n3": "~0.8.1"
   },
