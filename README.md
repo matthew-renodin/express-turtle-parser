@@ -6,9 +6,9 @@ This is for express applications where you who want to parse Turtle RDF on HTTP 
 
 While it has not been the most used or the most cited tool, the use of RDF is rising. 
 
-This uses n3 at its core.
+This uses n3 at its core. (https://github.com/RubenVerborgh/N3.js)
 
-This was based on the very popular express-xml-bodyparser (https://github.com/macedigital/express-xml-bodyparser)
+This was based on the very popular express-xml-bodyparser (https://github.com/macedigital/express-xml-bodyparser).
 
 ## Installation 
 
@@ -37,8 +37,8 @@ app.post('/receive-turtle', function(req, res, next) {
 
 });
 
-
-prov-o example from https://www.w3.org/TR/prov-o/
+// Save this in a file called provo-example.ttl 
+// prov-o example from https://www.w3.org/TR/prov-o/
 
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
