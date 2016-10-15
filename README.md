@@ -104,7 +104,4 @@ prov-o example from https://www.w3.org/TR/prov-o/
 
 cat provo-example.ttl | curl -H "Content-Type: text/turtle" -X POST -d @- http://localhost:43711/reveive-turtle
 
-
-
-[npm-image]:https://img.shields.io/npm/v/express-xml-bodyparser.svg?style=flat
 [npm-url]:https://www.npmjs.com/package/express-turtle-parser
