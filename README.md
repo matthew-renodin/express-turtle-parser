@@ -39,10 +39,13 @@ app.post('/receive-turtle', function(req, res, next) {
 
 server.listen(1337);
 ````
-````
-# Save this in a file called provo-example.ttl 
-# prov-o example from https://www.w3.org/TR/prov-o/
 
+````
+Save this in a file called provo-example.ttl 
+prov-o example from https://www.w3.org/TR/prov-o/
+````
+
+````
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -105,7 +108,7 @@ server.listen(1337);
 ````
 // using curl to send a HTTP POST
 
-cat provo-example.ttl | curl -H "Content-Type: text/turtle" -X POST -d @- http://localhost:43711/receive-turtle
+cat provo-example.ttl | curl -H "Content-Type: text/turtle" -X POST -d @- http://localhost:1337/receive-turtle
 ````
 
 [npm-url]:https://www.npmjs.com/package/express-turtle-parser
